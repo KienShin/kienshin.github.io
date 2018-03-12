@@ -77,23 +77,17 @@
 
 
 
-<meta name="description" content="transform简单入门简单介绍transform可以用来做dom变换 实践多个transform顺序大家都知道transform可以一起做很多的变换操作，但是这里要清楚的一点是所有的变换操作都是根据上一次变换后的dom来做出改变。 比如我们有这样一个盒子，我们想让这个盒子往右边移动100px并且旋转45deg，这个时候我们写的代码可能是这样的：transform: translateX(100">
+<meta name="description" content="目的通过使用koa-generator之类的脚手架直接搭建起一个简易的koa2后端，然后通过修改，改成我们想要的一个后端框架结构，偏向于后端只提供接口数据的生产环境，不同于传统mvc，该指南搭建的后端没有view层概念 为什么要这样做 在稍微大型的公司里面，前后端分离已经是很正常的事情了，如果前端内嵌到后端代码中，会给前端带来很多不必要的麻烦，所以view层肯定是让前端自己去搞定的，后端只是一个提">
 <meta property="og:type" content="article">
-<meta property="og:title" content="城南旧事">
-<meta property="og:url" content="http://yoursite.com/2017/11/05/transform简单入门/index.html">
+<meta property="og:title" content="koa2 MVC后端搭建指南（无视图层）">
+<meta property="og:url" content="http://yoursite.com/2017/11/06/koa2-MVC后端搭建指南（无视图层）/index.html">
 <meta property="og:site_name" content="城南旧事">
-<meta property="og:description" content="transform简单入门简单介绍transform可以用来做dom变换 实践多个transform顺序大家都知道transform可以一起做很多的变换操作，但是这里要清楚的一点是所有的变换操作都是根据上一次变换后的dom来做出改变。 比如我们有这样一个盒子，我们想让这个盒子往右边移动100px并且旋转45deg，这个时候我们写的代码可能是这样的：transform: translateX(100">
+<meta property="og:description" content="目的通过使用koa-generator之类的脚手架直接搭建起一个简易的koa2后端，然后通过修改，改成我们想要的一个后端框架结构，偏向于后端只提供接口数据的生产环境，不同于传统mvc，该指南搭建的后端没有view层概念 为什么要这样做 在稍微大型的公司里面，前后端分离已经是很正常的事情了，如果前端内嵌到后端代码中，会给前端带来很多不必要的麻烦，所以view层肯定是让前端自己去搞定的，后端只是一个提">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://kienshin-blog.oss-cn-beijing.aliyuncs.com/images/15090835776212/15098132375798.jpg?Expires=1509871704&OSSAccessKeyId=TMP.AQFE0FULG6yCoqBhqVz8BPi6Z6EgMenwDRRHcrLZ91wlFh8Eyhpb7Li3bl7IADAtAhRR2uXa8zhFt2Sm26jAOiq5qMxWZAIVAM89TSu3pkyMBedWs11gTQbb6tQa&Signature=ZFoXqOjQbKsHOuCuSVXyxESa7xg%3D">
-<meta property="og:image" content="http://kienshin-blog.oss-cn-beijing.aliyuncs.com/images/15090835776212/15098134164258.jpg?Expires=1509871268&OSSAccessKeyId=TMP.AQFE0FULG6yCoqBhqVz8BPi6Z6EgMenwDRRHcrLZ91wlFh8Eyhpb7Li3bl7IADAtAhRR2uXa8zhFt2Sm26jAOiq5qMxWZAIVAM89TSu3pkyMBedWs11gTQbb6tQa&Signature=FgZw9WIVYNew1WGG6qbnynkW338%3D">
-<meta property="og:image" content="http://kienshin-blog.oss-cn-beijing.aliyuncs.com/images/15090835776212/15098134832434.jpg?Expires=1509871282&OSSAccessKeyId=TMP.AQFE0FULG6yCoqBhqVz8BPi6Z6EgMenwDRRHcrLZ91wlFh8Eyhpb7Li3bl7IADAtAhRR2uXa8zhFt2Sm26jAOiq5qMxWZAIVAM89TSu3pkyMBedWs11gTQbb6tQa&Signature=ttFbgyTXfoi2Gaafe60yNKaQdps%3D">
-<meta property="og:image" content="http://kienshin-blog.oss-cn-beijing.aliyuncs.com/images/15090835776212/15098147146675.jpg?Expires=1509871303&OSSAccessKeyId=TMP.AQFE0FULG6yCoqBhqVz8BPi6Z6EgMenwDRRHcrLZ91wlFh8Eyhpb7Li3bl7IADAtAhRR2uXa8zhFt2Sm26jAOiq5qMxWZAIVAM89TSu3pkyMBedWs11gTQbb6tQa&Signature=7%2FhjMrBeOguOXWs%2Fie99OmGjXrI%3D">
-<meta property="og:image" content="http://kienshin-blog.oss-cn-beijing.aliyuncs.com/images/15090835776212/15098148895924.jpg?Expires=1509871312&OSSAccessKeyId=TMP.AQFE0FULG6yCoqBhqVz8BPi6Z6EgMenwDRRHcrLZ91wlFh8Eyhpb7Li3bl7IADAtAhRR2uXa8zhFt2Sm26jAOiq5qMxWZAIVAM89TSu3pkyMBedWs11gTQbb6tQa&Signature=rMqBBZOR9IOBIPEiZ%2FD3N6d79vU%3D">
-<meta property="og:updated_time" content="2017-11-05T07:54:31.000Z">
+<meta property="og:updated_time" content="2017-11-05T16:20:21.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="城南旧事">
-<meta name="twitter:description" content="transform简单入门简单介绍transform可以用来做dom变换 实践多个transform顺序大家都知道transform可以一起做很多的变换操作，但是这里要清楚的一点是所有的变换操作都是根据上一次变换后的dom来做出改变。 比如我们有这样一个盒子，我们想让这个盒子往右边移动100px并且旋转45deg，这个时候我们写的代码可能是这样的：transform: translateX(100">
-<meta name="twitter:image" content="http://kienshin-blog.oss-cn-beijing.aliyuncs.com/images/15090835776212/15098132375798.jpg?Expires=1509871704&OSSAccessKeyId=TMP.AQFE0FULG6yCoqBhqVz8BPi6Z6EgMenwDRRHcrLZ91wlFh8Eyhpb7Li3bl7IADAtAhRR2uXa8zhFt2Sm26jAOiq5qMxWZAIVAM89TSu3pkyMBedWs11gTQbb6tQa&Signature=ZFoXqOjQbKsHOuCuSVXyxESa7xg%3D">
+<meta name="twitter:title" content="koa2 MVC后端搭建指南（无视图层）">
+<meta name="twitter:description" content="目的通过使用koa-generator之类的脚手架直接搭建起一个简易的koa2后端，然后通过修改，改成我们想要的一个后端框架结构，偏向于后端只提供接口数据的生产环境，不同于传统mvc，该指南搭建的后端没有view层概念 为什么要这样做 在稍微大型的公司里面，前后端分离已经是很正常的事情了，如果前端内嵌到后端代码中，会给前端带来很多不必要的麻烦，所以view层肯定是让前端自己去搞定的，后端只是一个提">
 
 
 
@@ -123,13 +117,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/11/05/transform简单入门/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/11/06/koa2-MVC后端搭建指南（无视图层）/"/>
 
 
 
 
 
-  <title> | 城南旧事</title>
+  <title>koa2 MVC后端搭建指南（无视图层） | 城南旧事</title>
   
 
 
@@ -276,7 +270,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/05/transform简单入门/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/06/koa2-MVC后端搭建指南（无视图层）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Kien Shin">
@@ -293,7 +287,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">koa2 MVC后端搭建指南（无视图层）</h1>
         
 
         <div class="post-meta">
@@ -305,8 +299,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-05T15:54:31+08:00">
-                2017-11-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-06T00:06:49+08:00">
+                2017-11-06
               </time>
             
 
@@ -343,14 +337,14 @@
       
 
       
-        <h1 id="transform简单入门"><a href="#transform简单入门" class="headerlink" title="transform简单入门"></a>transform简单入门</h1><h2 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h2><p>transform可以用来做dom变换</p>
-<h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><h2 id="多个transform顺序"><a href="#多个transform顺序" class="headerlink" title="多个transform顺序"></a>多个transform顺序</h2><p>大家都知道transform可以一起做很多的变换操作，但是这里要清楚的一点是所有的变换操作都是根据上一次变换后的dom来做出改变。<img src="http://kienshin-blog.oss-cn-beijing.aliyuncs.com/images/15090835776212/15098132375798.jpg?Expires=1509871704&amp;OSSAccessKeyId=TMP.AQFE0FULG6yCoqBhqVz8BPi6Z6EgMenwDRRHcrLZ91wlFh8Eyhpb7Li3bl7IADAtAhRR2uXa8zhFt2Sm26jAOiq5qMxWZAIVAM89TSu3pkyMBedWs11gTQbb6tQa&amp;Signature=ZFoXqOjQbKsHOuCuSVXyxESa7xg%3D" alt=""></p>
-<p>比如我们有这样一个盒子，我们想让这个盒子往右边移动100px并且旋转45deg，这个时候我们写的代码可能是这样的：<br><code>transform: translateX(100px) rotate(45deg);</code><br>效果：<br><img src="http://kienshin-blog.oss-cn-beijing.aliyuncs.com/images/15090835776212/15098134164258.jpg?Expires=1509871268&amp;OSSAccessKeyId=TMP.AQFE0FULG6yCoqBhqVz8BPi6Z6EgMenwDRRHcrLZ91wlFh8Eyhpb7Li3bl7IADAtAhRR2uXa8zhFt2Sm26jAOiq5qMxWZAIVAM89TSu3pkyMBedWs11gTQbb6tQa&amp;Signature=FgZw9WIVYNew1WGG6qbnynkW338%3D" alt=""><br>但是如果我们尝试换一种方式：<br><code>transform: rotate(45deg) translateX(100px);</code><br>这个时候我们看到的效果可能是：<br><img src="http://kienshin-blog.oss-cn-beijing.aliyuncs.com/images/15090835776212/15098134832434.jpg?Expires=1509871282&amp;OSSAccessKeyId=TMP.AQFE0FULG6yCoqBhqVz8BPi6Z6EgMenwDRRHcrLZ91wlFh8Eyhpb7Li3bl7IADAtAhRR2uXa8zhFt2Sm26jAOiq5qMxWZAIVAM89TSu3pkyMBedWs11gTQbb6tQa&amp;Signature=ttFbgyTXfoi2Gaafe60yNKaQdps%3D" alt=""><br>很奇怪是吗？<br>原因是transform的dom变换其中有一个坐标轴的概念，也就是xyz轴，transform根据这三个轴在空间中的不同位置进行变换，而且上面已经讲过，transform会根据上一次这xyz轴进行操作。<br><img src="http://kienshin-blog.oss-cn-beijing.aliyuncs.com/images/15090835776212/15098147146675.jpg?Expires=1509871303&amp;OSSAccessKeyId=TMP.AQFE0FULG6yCoqBhqVz8BPi6Z6EgMenwDRRHcrLZ91wlFh8Eyhpb7Li3bl7IADAtAhRR2uXa8zhFt2Sm26jAOiq5qMxWZAIVAM89TSu3pkyMBedWs11gTQbb6tQa&amp;Signature=7%2FhjMrBeOguOXWs%2Fie99OmGjXrI%3D" alt=""><br>第一个效果首先移动了100px但是坐标轴还是原始的坐标找，所以之后旋转的45deg我们可以得到我们想要的效果。<br>然而第二个效果，我们可以理解为坐标轴首先被rotate变换了45deg然后再根据x轴进行位移，变换后的坐标轴大概是这样的<br><img src="http://kienshin-blog.oss-cn-beijing.aliyuncs.com/images/15090835776212/15098148895924.jpg?Expires=1509871312&amp;OSSAccessKeyId=TMP.AQFE0FULG6yCoqBhqVz8BPi6Z6EgMenwDRRHcrLZ91wlFh8Eyhpb7Li3bl7IADAtAhRR2uXa8zhFt2Sm26jAOiq5qMxWZAIVAM89TSu3pkyMBedWs11gTQbb6tQa&amp;Signature=rMqBBZOR9IOBIPEiZ%2FD3N6d79vU%3D" alt=""><br>最终我们可以得到的一个结论是，transform的每一次变换都进行了以下操作：<br>1.基于三轴进行变换<br>2.输出变换后的三轴<br>3.进行下次变换</p>
-<p>理解了这个简单的概念，我们在实际场景中应用这个属性做一些变换操作就变得更加清晰了。</p>
-<h2 id="性能问题"><a href="#性能问题" class="headerlink" title="性能问题"></a>性能问题</h2><p>性能问题其实不是transform引起的，而是transition导致的，在这里提一下，是因为我们利用transform除了一般需要变换dom以外可能还会结合transition，animation之类的样式做动画效果。</p>
-<p>举一个很简单的例子，飘落物效果。<br>首先我们最简单的解决方案之一就是利用dom在顶部排列好比如10-20个飘落物，然后position:fixed这些dom，之后我们利用transition设置top属性来控制这些飘落物或者是利用animation做成动效。<br>但是这里有一个概念需要大家明白的是如果你用了top，那么在你不断改变top的时候其实是浏览器内核对dom进行了重绘，就像有些同学玩过flash的帧动画，为什么我们的gif图这么大，就是因为它也是一个帧动画，用一帧一帧的移动来形成动画效果，这无疑有大量的资源浪费。<br>但是如果我们不用transition: top 1s;我们改用transition: transform 1s; 然后transform: translateY(2000px);这样会也可以做我们想要的效果，这种动画效果其实就是我们flash里面的补间动画，就是浏览器自动帮我们设置好中间的动画效果，我们只要设置好开始和结束就可以了。</p>
-<p>后续我会写出基础demo以及性能测试来为各位同学做详细讲解。</p>
-<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>本文其实不算结束，对transform的理解其实还不够透彻，有兴趣的同学可以去自己了解下transform所有参数的使用，尤其是使用matrix,matrix3d这两个参数是所有变化的核心，但是理解起来也比较难</p>
+        <h1 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h1><p>通过使用koa-generator之类的脚手架直接搭建起一个简易的koa2后端，然后通过修改，改成我们想要的一个后端框架结构，偏向于后端只提供接口数据的生产环境，不同于传统mvc，<strong>该指南搭建的后端没有view层概念</strong></p>
+<h1 id="为什么要这样做"><a href="#为什么要这样做" class="headerlink" title="为什么要这样做"></a>为什么要这样做</h1><ol>
+<li>在稍微大型的公司里面，前后端分离已经是很正常的事情了，如果前端内嵌到后端代码中，会给前端带来很多不必要的麻烦，所以view层肯定是让前端自己去搞定的，后端只是一个提供数据交互的地方，单纯的讲工作逻辑应该是：前端请求http/https。。。后端接收请求，返回相应参数，这也是koa2遵循的理念，所以我们不应该照搬以前传统的搭建模式。</li>
+<li>在流量稍微大一点的应用里面，我们一般都不可能吧静态资源很生硬的直接放到服务器里面，肯定是把所有的这些资源文件都放到比如阿里云的oss上，然后加入cdn分布式分发这些资源到全国各地，所以后端不可能存在静态资源（前端用的资源）。</li>
+<li>暂时没有第三点</li>
+</ol>
+<h1 id="指南开始"><a href="#指南开始" class="headerlink" title="指南开始"></a>指南开始</h1><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>其实是可以跳过的，因为网上资源太多，但是考虑再三还是应该加上，假设各位同学已经安装了npm node环境</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">npm i -g koa2</span><br><span class="line">npm i -g koa2-generator</span><br><span class="line">koa2 koa2-demo</span><br><span class="line">cd koa2-demo</span><br><span class="line">npm i</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -375,14 +369,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/11/05/transform简单入门/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/11/06/koa2-MVC后端搭建指南（无视图层）/" rel="prev" title="koa2 MVC后端搭建指南（无视图层）">
-                koa2 MVC后端搭建指南（无视图层） <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/10/oauth2学习指南/" rel="prev" title="oauth2学习指南">
+                oauth2学习指南 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -525,7 +523,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#transform简单入门"><span class="nav-number">1.</span> <span class="nav-text">transform简单入门</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简单介绍"><span class="nav-number">1.1.</span> <span class="nav-text">简单介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实践"><span class="nav-number">1.2.</span> <span class="nav-text">实践</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多个transform顺序"><span class="nav-number">1.3.</span> <span class="nav-text">多个transform顺序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#性能问题"><span class="nav-number">1.4.</span> <span class="nav-text">性能问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写在最后"><span class="nav-number">1.5.</span> <span class="nav-text">写在最后</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#目的"><span class="nav-number">1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#为什么要这样做"><span class="nav-number">2.</span> <span class="nav-text">为什么要这样做</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#指南开始"><span class="nav-number">3.</span> <span class="nav-text">指南开始</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">3.1.</span> <span class="nav-text">准备工作</span></a></li></ol></li></ol></div>
             
 
           </div>
